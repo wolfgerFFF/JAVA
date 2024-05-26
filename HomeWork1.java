@@ -49,7 +49,7 @@ public class VendingMachine {
                 return p;
             }
        }
-        return new Product("product is  undefined", 0,0);
+        return new Product("there is no such product!",0,0);
     }
 }
 public class Main {
