@@ -1,0 +1,25 @@
+public static void main(String[] args) {
+
+   Market market = new Market();
+
+    market.EnteredTheQueue("Олег");
+    market.EnteredTheQueue("Иван");
+    market.EnteredTheQueue("Катя");
+
+
+    market.ordered_it("Заказ №1");
+    market.ordered_it("Заказ №2");
+    market.ordered_it("Заказ №3");
+
+
+    market.update();
+    market.update();
+    market.update();
+
+
+    market.ExitTheQueue();
+    market.in_order();
+    market.ExitTheQueue();
+    market.in_order();
+
+}
