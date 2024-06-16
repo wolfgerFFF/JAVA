@@ -3,10 +3,10 @@ import java.util.Comparator;
 public class StreamComparator implements Comparator<Stream> {
 
     @Override
-    public int compare(Stream o1, Stream o2) {
-        if (o1.getGroupList().size() > o2.getGroupList().size())
+    public int compare(Stream strm1, Stream strm2) {
+        if (strm1.getGroupList().size() > strm2.getGroupList().size())
             return 1;
-        if (o1.getGroupList().size() < o2.getGroupList().size())
+        if (strm1.getGroupList().size() < strm2.getGroupList().size())
             return -1;
         return 0;
     }
