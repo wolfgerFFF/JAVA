@@ -5,7 +5,6 @@ class StudyGroup {
 public:
   int id;
   std::string name;
-
   StudyGroup(int id, std::string name) : id(id), name(name) {}
 };
 
@@ -26,10 +25,7 @@ int main() {
     StudyGroup studyGroup2(2, "Grup2");
     StudyGroup studyGroup3(3, "Grup3");
     StudyGroup studyGroup4(4, "Grup4");
-    StudyGroup studyGroup5(5, "Grup5");
-    StudyGroup studyGroup6(6, "Grup6");
-    StudyGroup studyGroup7(7, "Grup7");
-    StudyGroup studyGroup8(8, "Grup8");
+    
 
     std::vector<StudyGroup> groupAllList;
     groupAllList.push_back(studyGroup1);
@@ -42,7 +38,7 @@ int main() {
     Stream stream1(1, groupList);
     stream1.addStudyGroup(studyGroup1);
     stream1.addStudyGroup(studyGroup2);
-    stream1.addStudyGroup(studyGroup5);
+    
     Stream stream2(2, groupList);
     stream2.addStudyGroup(studyGroup3);
     stream2.addStudyGroup(studyGroup4);
