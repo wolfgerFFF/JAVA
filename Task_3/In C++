@@ -1,0 +1,69 @@
+#include <iostream>
+#include <vector>
+
+class StudyGroup {
+public:
+  int id;
+  std::string name;
+
+  StudyGroup(int id, std::string name) : id(id), name(name) {}
+};
+
+class Stream {
+public:
+  int id;
+  std::vector<StudyGroup> groupList;
+
+  Stream(int id, std::vector<StudyGroup>& groupList) : id(id), groupList(groupList) {}
+
+  void addStudyGroup(StudyGroup studyGroup) {
+    groupList.push_back(studyGroup);
+  }
+};
+
+int main() {
+    StudyGroup studyGroup1(1, "Grup1");
+    StudyGroup studyGroup2(2, "Grup2");
+    StudyGroup studyGroup3(3, "Grup3");
+    StudyGroup studyGroup4(4, "Grup4");
+    StudyGroup studyGroup5(5, "Grup5");
+    StudyGroup studyGroup6(6, "Grup6");
+    StudyGroup studyGroup7(7, "Grup7");
+    StudyGroup studyGroup8(8, "Grup8");
+
+    std::vector<StudyGroup> groupAllList;
+    groupAllList.push_back(studyGroup1);
+    groupAllList.push_back(studyGroup2);
+    groupAllList.push_back(studyGroup3);
+    groupAllList.push_back(studyGroup4);
+    
+    std::vector<StudyGroup> groupList;
+
+    Stream stream1(1, groupList);
+    stream1.addStudyGroup(studyGroup1);
+    stream1.addStudyGroup(studyGroup2);
+    stream1.addStudyGroup(studyGroup5);
+    Stream stream2(2, groupList);
+    stream2.addStudyGroup(studyGroup3);
+    stream2.addStudyGroup(studyGroup4);
+    
+    Stream stream3(3, groupList);
+    stream3.addStudyGroup(studyGroup4);
+
+    for (auto it = groupAllList.begin(); it != groupAllList.end(); ++it) {
+      std::cout << it->id << " " << it->name << std::endl;
+    }
+
+    std::cout << std::endl;
+    std::vector<Stream> streams = {stream3, stream1, stream2};
+
+    for (const auto& stream : streams) {
+      std::cout << stream.id << " ";
+        for (const auto& group : stream.groupList) {
+          std::cout << group.id << " ";
+        }
+        std::cout << std::endl;
+    }
+  system("pause");
+  return 0;
+}
