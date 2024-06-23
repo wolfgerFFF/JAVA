@@ -1,4 +1,4 @@
-package TAsk_5.Service;
+package Task_5.Service;
 
 import Task_5.Model.Student;
 import Task_5.Model.StudentGroup;
