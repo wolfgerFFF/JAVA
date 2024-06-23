@@ -1,6 +1,5 @@
+package Task_5.Model;
 import java.util.List;
-
-
 
 public class StudentGroup {
     private Integer groupId;
