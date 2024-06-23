@@ -1,3 +1,5 @@
+package Task_5.Model;
+
 public class Student extends User {
     private Integer studentId;
 
