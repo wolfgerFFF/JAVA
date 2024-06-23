@@ -1,5 +1,5 @@
 
-
+package Task_5.Model;
 
 public abstract class User{
 	private String surname;
