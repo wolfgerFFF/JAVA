@@ -1,5 +1,5 @@
 
-package Task_5.controller;
+package Task_5.Controller;
 
 import Task_5.Model.Student;
 import Task_5.Model.Type;
