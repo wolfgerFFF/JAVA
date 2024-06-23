@@ -1,4 +1,4 @@
-
+package Task_5.Model;
 
 public class Teacher extends User {
     private Integer teacherId;
