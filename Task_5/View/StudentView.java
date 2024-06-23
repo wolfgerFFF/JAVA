@@ -1,4 +1,4 @@
-import Task_5.model.Student;
+import Task_5.Model.Student;
 
 import java.util.List;
 
