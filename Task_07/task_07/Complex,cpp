@@ -1,1 +1,176 @@
 
+#include <cmath>
+#include <complex>
+#include <iostream>
+
+
+class Complex {
+private:
+	double re, im;
+public:
+
+	Complex() : re(0.0), im(0.0)
+	{ }
+	Complex(double real) :re(real),im(0.0)
+    { }
+    Complex(double real,double imag) : re(real),im(imag)
+    { }
+
+	void read() 
+	{
+		std::cout << "Реальная часть комплексного числа: ";
+		std::cin >> re;
+        std::cout << "Мнимая часть комплексного числа: ";
+		std::cin >> im;
+	}
+	void display() const;
+	Complex operator+(Complex&);
+	Complex operator-(Complex&);
+	Complex operator*(Complex&);
+	Complex operator/(Complex&);
+	Complex operator~(void);
+		
+	double get_real()
+	{
+		return ((*this).re);
+	}
+	
+	double get_img()
+	{
+		return ((*this).im);
+	}
+};
+
+
+void Complex::display() const
+{
+	if (im >= 0) {
+		std::cout << re << "+i" << im << std::endl;
+	}
+	else {
+		std::cout << re << "-i" << (-1) * im << std::endl;
+	}
+}
+
+Complex Complex::operator+(Complex& o2)
+{
+	Complex temp{};
+	temp.re = re + o2.re;
+	temp.im = im + o2.im;
+    return temp;
+}
+
+
+Complex Complex::operator-(Complex& o2)
+{
+	Complex temp{};
+	temp.re = re - o2.re;
+	temp.im = im - o2.im;
+	return temp;
+}
+
+Complex Complex::operator*(Complex& o2)
+{
+	Complex temp{};
+	temp.re = (re * o2.re) + (-1 * (im * o2.im));
+	temp.im = (im * o2.re) + (re * o2.im);
+	return temp;
+}
+
+Complex Complex::operator/(Complex& o2)
+{
+	Complex o, num, den, temp{};
+	o = ~o2;
+	num = (*this) * (o);
+	den = o2 * o;
+	temp.re = num.re / den.re;
+	temp.im = num.im / den.re;
+	return temp;
+}
+
+Complex Complex::operator~(void)
+{
+	Complex temp{};
+    temp.re = re;
+	temp.im = -1 * im;
+	return temp;
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	std::cout << "**********************Операции С Комплексными "
+		"Числами***************************";
+
+	Complex other1{}, other2{}, other3{};
+
+	
+	int choice;
+	do {
+		std::cout << "\nВведите ваш выбор для выполнения операции: \n\n";
+		std::cout << " 1.Считывание комплексного числа\n\n";
+		std::cout << " 2.Отображение комплексного числа\n\n";
+		std::cout << " 3.Сложение комплексного числа\n\n";
+		std::cout << " 4.Вычитание комплексного числа\n\n";
+		std::cout << " 5.Умножение комплексного числа\n\n";
+		std::cout << " 6.Деление комплексного числа\n\n";
+		std::cout << " 7.Показывать действительные значения комплексного числа\n\n";
+		std::cout << " 8.Показать мнимые значения комплексного числа\n\n";
+		std::cout << " 9.Выход\n\n";
+		std::cin >> choice;
+		std::cout << "\n";
+
+		switch (choice) {
+		case 1:
+			std::cout << " Введите  значения 1-го комплексного числа: \n";
+			other1.read();
+			std::cout << " Введите  значения 2-го комплексного числа: \n";
+			other2.read();
+			break;
+		case 2:
+			std::cout << " КОМПЛЕКСНОЕ ЧИСЛО: \n";
+			other1.display();
+			other2.display();
+			break;
+		case 3:
+			other3 = other1 + other2;
+			std::cout << " СУММА КОМПЛЕКСНЫХ ЧИСЕЛ: \n";
+			other3.display();
+			break;
+		case 4:
+			other3 = other1 - other2;
+			std::cout << " РАЗНОСТЬ КОМПЛЕКСНЫХ ЧИСЕЛ: \n";
+			other3.display();
+			break;
+		case 5:
+			other3 = other1 * other2;
+			std::cout << " ПРОИЗВЕДЕНИЕ КОМПЛЕКСНЫХ ЧИСЕЛ: \n";
+			other3.display();
+			break;
+		case 6:
+			other3 = other1 / other2;
+			std::cout << " ДЕЛЕНИЕ КОМПЛЕКСНЫХ ЧИСЕЛ: \n";
+			other3.display();
+			break;
+		case 7:
+			std::cout << " Действительное значение 1-го комплексного числа равно: "
+				      << other1.get_real() << std::endl;
+			std::cout << " Действительное значение 2-го комплексного числа равно: "
+				      << other2.get_real() << std::endl;
+			break;
+		case 8:
+			std::cout << " Мнимое значение 2-го комплексного числа равно: "
+				      << other1.get_img() << std::endl;
+			std::cout << " Мнимое значение 2-го комплексного числа равно: "
+				      << other2.get_img() << std::endl;
+			break;
+		case 9:
+			return 1;
+			break;
+		default:
+			std::cout << " Выберите пункт меню:  !!";
+			break;
+		}
+	} while (1);
+	return 0;
+}
