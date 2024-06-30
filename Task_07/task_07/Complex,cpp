@@ -9,19 +9,19 @@ private:
 	double re, im;
 public:
 
-	Complex() : re(0.0), im(0.0)
-	{ }
-	Complex(double real) :re(real),im(0.0)
+    Complex() : re(0.0), im(0.0)
+    { }
+    Complex(double real) :re(real),im(0.0)
     { }
     Complex(double real,double imag) : re(real),im(imag)
     { }
 
 	void read() 
 	{
-		std::cout << "Реальная часть комплексного числа: ";
-		std::cin >> re;
-        std::cout << "Мнимая часть комплексного числа: ";
-		std::cin >> im;
+	 std::cout << "Реальная часть комплексного числа: ";
+	 std::cin >> re;
+         std::cout << "Мнимая часть комплексного числа: ";
+	 std::cin >> im;
 	}
 	void display() const;
 	Complex operator+(Complex&);
